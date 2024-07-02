@@ -1,0 +1,177 @@
+{
+  "liblabVersion": "2.1.18",
+  "date": "2024-07-02T20:25:00.480Z",
+  "config": {
+    "apiId": 370,
+    "baseUrl": "https://api-web.nhle.com/",
+    "sdkName": "nhl",
+    "sdkVersion": "1.0.0",
+    "liblabVersion": "2",
+    "deliveryMethods": ["zip"],
+    "languages": ["typescript"],
+    "apiVersion": "1.0.0",
+    "apiName": "nhl",
+    "specFilePath": "./nhl.yaml",
+    "auth": [],
+    "languageOptions": {
+      "csharp": {
+        "packageId": "",
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "sdkVersion": "1.0.0"
+      },
+      "go": {
+        "goModuleName": "github.com/swagger-api/swagger-petstore",
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "sdkVersion": "1.0.0"
+      },
+      "python": {
+        "alwaysInitializeOptionals": false,
+        "pypiPackageName": "",
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "sdkVersion": "1.0.0"
+      },
+      "typescript": {
+        "bundle": false,
+        "exportClassDefault": false,
+        "httpClient": "axios",
+        "npmName": "",
+        "npmOrg": "",
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "sdkVersion": "1.0.0"
+      }
+    },
+    "publishing": {
+      "githubOrg": ""
+    },
+    "devContainer": false,
+    "generateEnv": true,
+    "includeOptionalSnippetParameters": true,
+    "inferServiceNames": false,
+    "injectedModels": [],
+    "license": {
+      "type": "MIT",
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT",
+      "path": "MIT.ejs"
+    },
+    "responseHeaders": false,
+    "retry": {
+      "enabled": true,
+      "maxAttempts": 3,
+      "retryDelay": 150,
+      "maxDelay": 5000,
+      "retryDelayJitter": 50,
+      "backOffFactor": 2,
+      "httpCodesToRetry": [408, 429, 500, 502, 503, 504],
+      "httpMethodsToRetry": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
+    },
+    "multiTenant": true,
+    "hooksLocation": {
+      "bucketKey": "12856/hooks.zip",
+      "bucketName": "dev-liblab-api-stack-hooks"
+    },
+    "specUrl": "https://dev-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/370/open-api-spec.yaml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3C2RXH7MWUCMN7ON%2F20240702%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240702T202459Z&X-Amz-Expires=43200&X-Amz-Signature=4be6c2bd2c0dec27998c3e315fd617ca12d60e40892d6f207b5f5d744afe1f14&X-Amz-SignedHeaders=host&x-id=GetObject",
+    "workflow": null,
+    "includeWatermark": true,
+    "language": "typescript",
+    "deliveryMethod": "zip",
+    "hooks": {
+      "enabled": false,
+      "sourceDir": ""
+    },
+    "bundle": false,
+    "exportClassDefault": false,
+    "httpClient": "axios",
+    "npmName": "",
+    "npmOrg": "",
+    "githubRepoName": "",
+    "ignoreFiles": [],
+    "typescriptVersion": "5.3.3",
+    "zodVersion": "3.22.0",
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "lib": ["es2017", "dom"]
+    },
+    "usesFormData": false,
+    "authentication": {},
+    "environmentVariables": [],
+    "fileOutput": "/tmp",
+    "httpLibrary": {
+      "name": "axios",
+      "packages": {
+        "axios": "^1.6.8"
+      },
+      "languages": ["typescript"]
+    },
+    "customQueries": {
+      "paths": [],
+      "rawQueries": [],
+      "queriesData": []
+    }
+  },
+  "files": [
+    "package.json",
+    "tsconfig.json",
+    "examples/tsconfig.json",
+    "examples/package.json",
+    "examples/README.md",
+    "examples/src/index.ts",
+    "src/http/client.ts",
+    "src/http/serializer.ts",
+    ".gitignore",
+    "src/services/base-service.ts",
+    "src/services/player-spotlight/player-spotlight.ts",
+    "src/services/scoreboard/scoreboard.ts",
+    "src/index.ts",
+    "src/http/index.ts",
+    "src/services/player/index.ts",
+    "src/services/skater-stats/index.ts",
+    "src/services/goalie-stats/index.ts",
+    "src/services/player-spotlight/index.ts",
+    "src/services/standings/index.ts",
+    "src/services/club-stats/index.ts",
+    "src/services/scoreboard/index.ts",
+    "src/services/roster/index.ts",
+    "src/services/schedule/index.ts",
+    "src/http/handlers/handler-chain.ts",
+    "src/http/error.ts",
+    "src/http/handlers/terminating-handler.ts",
+    "src/http/handlers/hook-handler.ts",
+    "src/http/hooks/custom-hook.ts",
+    "src/http/hooks/hook.ts",
+    "src/http/handlers/retry-handler.ts",
+    "src/http/environment.ts",
+    "src/http/handlers/response-validation-handler.ts",
+    "./LICENSE",
+    "src/services/skater-stats/request-params.ts",
+    "src/services/goalie-stats/request-params.ts",
+    "src/http/handlers/request-validation-handler.ts",
+    "src/services/skater-stats/skater-stats.ts",
+    "src/services/goalie-stats/goalie-stats.ts",
+    "src/services/roster/roster.ts",
+    "src/services/player/player.ts",
+    "src/services/standings/standings.ts",
+    "src/services/club-stats/club-stats.ts",
+    "src/services/schedule/schedule.ts",
+    "src/http/types.ts",
+    "documentation/services/PlayerSpotlightService.md",
+    "documentation/services/ScoreboardService.md",
+    "documentation/services/SkaterStatsService.md",
+    "documentation/services/GoalieStatsService.md",
+    "documentation/services/RosterService.md",
+    "documentation/services/PlayerService.md",
+    "documentation/services/StandingsService.md",
+    "documentation/services/ClubStatsService.md",
+    "documentation/services/ScheduleService.md",
+    "README.md"
+  ]
+}
