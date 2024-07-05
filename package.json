@@ -1,0 +1,24 @@
+{
+  "name": "nhl",
+  "version": "1.0.0",
+  "description": "Documenting the publicly accessible portions of the NHL API.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "typescript",
+    "sdk",
+    "api",
+    "client"
+  ],
+  "author": "NHL API documentation",
+  "license": "",
+  "devDependencies": {
+    "typescript": "5.3.3"
+  },
+  "dependencies": {
+    "zod": "3.22.0"
+  }
+}
