@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { BaseService } from '../base-service';
 import { ContentType, HttpResponse } from '../../http';
 import { RequestConfig } from '../../http/types';
+import { Request } from '../../http/transport/request';
 
 export class RosterService extends BaseService {
   /**
@@ -12,16 +13,18 @@ export class RosterService extends BaseService {
    * @returns {Promise<HttpResponse<any>>} Successful response
    */
   async getCurrentTeamRoster(team: string, requestConfig?: RequestConfig): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/roster/{team}/current', { team: team });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/roster/{team}/current',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('team', team);
+    return this.client.call(request);
   }
 
   /**
@@ -31,15 +34,18 @@ export class RosterService extends BaseService {
    * @returns {Promise<HttpResponse<any>>} Successful response
    */
   async getTeamRosterBySeason(team: string, season: number, requestConfig?: RequestConfig): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/roster/{team}/{season}', { team: team, season: season });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/roster/{team}/{season}',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('team', team);
+    request.addPathParam('season', season);
+    return this.client.call(request);
   }
 }

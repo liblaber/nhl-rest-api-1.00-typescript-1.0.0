@@ -1,6 +1,6 @@
-# Nhl TypeScript SDK 1.0.0
+# NhlClient TypeScript SDK 1.0.0
 
-Welcome to the Nhl SDK documentation. This guide will help you get started with integrating and using the Nhl SDK in your project.
+Welcome to the NhlClient SDK documentation. This guide will help you get started with integrating and using the NhlClient SDK in your project.
 
 ## Versions
 
@@ -31,7 +31,7 @@ This SDK is compatible with the following versions: `TypeScript >= 4.8.4`
 To get started with the SDK, we recommend installing using `npm`:
 
 ```bash
-npm install nhl
+npm install nhl_client
 ```
 
 ## Services

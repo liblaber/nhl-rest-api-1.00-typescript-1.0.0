@@ -1,9 +1,9 @@
 {
-  "name": "nhl",
+  "name": "nhl_client",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "nhl": "file:../",
+    "nhl_client": "file:../",
     "zod": "3.22.0"
   },
   "scripts": {

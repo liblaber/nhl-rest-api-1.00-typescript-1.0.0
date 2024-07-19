@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { BaseService } from '../base-service';
 import { ContentType, HttpResponse } from '../../http';
 import { RequestConfig } from '../../http/types';
+import { Request } from '../../http/transport/request';
 
 export class PlayerService extends BaseService {
   /**
@@ -19,20 +20,20 @@ export class PlayerService extends BaseService {
     gameType: number,
     requestConfig?: RequestConfig,
   ): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/player/{player}/game-log/{season}/{game-type}', {
-      player: player,
-      season: season,
-      'game-type': gameType,
-    });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/player/{player}/game-log/{season}/{game-type}',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('player', player);
+    request.addPathParam('season', season);
+    request.addPathParam('game-type', gameType);
+    return this.client.call(request);
   }
 
   /**
@@ -41,16 +42,18 @@ export class PlayerService extends BaseService {
    * @returns {Promise<HttpResponse<any>>} Successful response
    */
   async getPlayerInfo(player: number, requestConfig?: RequestConfig): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/player/{player}/landing', { player: player });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/player/{player}/landing',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('player', player);
+    return this.client.call(request);
   }
 
   /**
@@ -59,15 +62,17 @@ export class PlayerService extends BaseService {
    * @returns {Promise<HttpResponse<any>>} Successful response
    */
   async getGameLogCurrent(player: number, requestConfig?: RequestConfig): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/player/{player}/game-log/now', { player: player });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/player/{player}/game-log/now',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('player', player);
+    return this.client.call(request);
   }
 }

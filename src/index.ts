@@ -12,7 +12,7 @@ import { ScoreboardService } from './services/scoreboard';
 import { RosterService } from './services/roster';
 import { ScheduleService } from './services/schedule';
 
-export class Nhl {
+export class NhlClient {
   public readonly player: PlayerService;
 
   public readonly skaterStats: SkaterStatsService;
@@ -78,6 +78,18 @@ export class Nhl {
     this.scoreboard.baseUrl = environment;
     this.roster.baseUrl = environment;
     this.schedule.baseUrl = environment;
+  }
+
+  set timeout(timeout: number) {
+    this.player.timeout = timeout;
+    this.skaterStats.timeout = timeout;
+    this.goalieStats.timeout = timeout;
+    this.playerSpotlight.timeout = timeout;
+    this.standings.timeout = timeout;
+    this.clubStats.timeout = timeout;
+    this.scoreboard.timeout = timeout;
+    this.roster.timeout = timeout;
+    this.schedule.timeout = timeout;
   }
 }
 

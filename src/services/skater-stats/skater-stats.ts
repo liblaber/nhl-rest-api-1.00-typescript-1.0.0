@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { BaseService } from '../base-service';
 import { ContentType, HttpResponse } from '../../http';
 import { RequestConfig } from '../../http/types';
+import { Request } from '../../http/transport/request';
 import { GetCurrentSkaterStatsLeadersParams, GetSkaterStatsLeadersParams } from './request-params';
 
 export class SkaterStatsService extends BaseService {
@@ -17,23 +18,19 @@ export class SkaterStatsService extends BaseService {
     params?: GetCurrentSkaterStatsLeadersParams,
     requestConfig?: RequestConfig,
   ): Promise<HttpResponse<any>> {
-    const path = '/v1/skater-stats-leaders/current';
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/skater-stats-leaders/current',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      queryParams: {},
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    if (params?.categories) {
-      options.queryParams['categories'] = params?.categories;
-    }
-    if (params?.limit) {
-      options.queryParams['limit'] = params?.limit;
-    }
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addQueryParam('categories', params?.categories);
+    request.addQueryParam('limit', params?.limit);
+    return this.client.call(request);
   }
 
   /**
@@ -50,25 +47,20 @@ export class SkaterStatsService extends BaseService {
     params?: GetSkaterStatsLeadersParams,
     requestConfig?: RequestConfig,
   ): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/skater-stats-leaders/{season}/{game-type}', {
-      season: season,
-      'game-type': gameType,
-    });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/skater-stats-leaders/{season}/{game-type}',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      queryParams: {},
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    if (params?.categories) {
-      options.queryParams['categories'] = params?.categories;
-    }
-    if (params?.limit) {
-      options.queryParams['limit'] = params?.limit;
-    }
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('season', season);
+    request.addPathParam('game-type', gameType);
+    request.addQueryParam('categories', params?.categories);
+    request.addQueryParam('limit', params?.limit);
+    return this.client.call(request);
   }
 }

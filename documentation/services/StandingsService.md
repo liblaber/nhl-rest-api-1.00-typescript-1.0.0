@@ -22,12 +22,12 @@ Retrieve the standings as of the current moment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.standings.getCurrentStandings();
+  const { data } = await nhlClient.standings.getCurrentStandings();
 
   console.log(data);
 })();
@@ -53,12 +53,12 @@ Retrieve the standings for a specific date.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.standings.getStandingsByDate('date');
+  const { data } = await nhlClient.standings.getStandingsByDate('date');
 
   console.log(data);
 })();
@@ -78,12 +78,12 @@ Retrieves information for each season's standings.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.standings.getStandingsSeason();
+  const { data } = await nhlClient.standings.getStandingsSeason();
 
   console.log(data);
 })();
