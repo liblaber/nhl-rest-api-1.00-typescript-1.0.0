@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { BaseService } from '../base-service';
 import { ContentType, HttpResponse } from '../../http';
 import { RequestConfig } from '../../http/types';
+import { Request } from '../../http/transport/request';
 
 export class ClubStatsService extends BaseService {
   /**
@@ -12,16 +13,18 @@ export class ClubStatsService extends BaseService {
    * @returns {Promise<HttpResponse<any>>} Successful response
    */
   async getCurrentClubStats(team: string, requestConfig?: RequestConfig): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/club-stats/{team}/now', { team: team });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/club-stats/{team}/now',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('team', team);
+    return this.client.call(request);
   }
 
   /**
@@ -30,16 +33,18 @@ export class ClubStatsService extends BaseService {
    * @returns {Promise<HttpResponse<any>>} Successful response
    */
   async getTeamClubStatsSeason(team: string, requestConfig?: RequestConfig): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/club-stats-season/{team}', { team: team });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/club-stats-season/{team}',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('team', team);
+    return this.client.call(request);
   }
 
   /**
@@ -55,19 +60,19 @@ export class ClubStatsService extends BaseService {
     gameType: number,
     requestConfig?: RequestConfig,
   ): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/club-stats/{team}/{season}/{game-type}', {
-      team: team,
-      season: season,
-      'game-type': gameType,
-    });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/club-stats/{team}/{season}/{game-type}',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('team', team);
+    request.addPathParam('season', season);
+    request.addPathParam('game-type', gameType);
+    return this.client.call(request);
   }
 }

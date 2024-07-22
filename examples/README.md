@@ -1,10 +1,10 @@
-# nhl
+# nhl_client
 
-A basic example of how to use the nhl package.
+A basic example of how to use the nhl_client package.
 
 ## Installation
 
-In the event `nhl` is not published to npm, you can install it locally by running the following command in the examples folder:
+In the event `nhl_client` is not published to npm, you can install it locally by running the following command in the examples folder:
 
 ```sh
 npm run setup
@@ -15,7 +15,7 @@ This will rebuild the parent package and install it locally.
 Otherwise you can install it from npm:
 
 ```sh
-npm install nhl
+npm install nhl_client
 ```
 
 ## Usage

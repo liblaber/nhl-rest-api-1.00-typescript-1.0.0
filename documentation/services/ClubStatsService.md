@@ -28,12 +28,12 @@ Retrieve current statistics for a specific club.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.clubStats.getCurrentClubStats('team');
+  const { data } = await nhlClient.clubStats.getCurrentClubStats('team');
 
   console.log(data);
 })();
@@ -59,12 +59,12 @@ Returns an overview of the stats for each season for a specific club.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.clubStats.getTeamClubStatsSeason('team');
+  const { data } = await nhlClient.clubStats.getTeamClubStatsSeason('team');
 
   console.log(data);
 })();
@@ -92,12 +92,12 @@ Retrieve the stats for a specific team, season, and game type.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.clubStats.getClubStatsBySeason('team', 1, 8);
+  const { data } = await nhlClient.clubStats.getClubStatsBySeason('team', 8, 4);
 
   console.log(data);
 })();

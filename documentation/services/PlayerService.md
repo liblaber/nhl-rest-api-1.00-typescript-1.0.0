@@ -30,12 +30,12 @@ Retrieve the game log for a specific player, season, and game type.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.player.getGameLog(3, 1, 5);
+  const { data } = await nhlClient.player.getGameLog(8, 2, 9);
 
   console.log(data);
 })();
@@ -61,12 +61,12 @@ Retrieve information for a specific player.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.player.getPlayerInfo(4);
+  const { data } = await nhlClient.player.getPlayerInfo(8);
 
   console.log(data);
 })();
@@ -92,12 +92,12 @@ Retrieve the game log for a specific player as of the current moment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.player.getGameLogCurrent(2);
+  const { data } = await nhlClient.player.getGameLogCurrent(2);
 
   console.log(data);
 })();

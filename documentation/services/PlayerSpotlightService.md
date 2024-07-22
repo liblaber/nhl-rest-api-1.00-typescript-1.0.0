@@ -20,12 +20,12 @@ Retrieve information about players in the "spotlight".
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.playerSpotlight.getPlayerSpotlight();
+  const { data } = await nhlClient.playerSpotlight.getPlayerSpotlight();
 
   console.log(data);
 })();

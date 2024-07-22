@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { BaseService } from '../base-service';
 import { ContentType, HttpResponse } from '../../http';
 import { RequestConfig } from '../../http/types';
+import { Request } from '../../http/transport/request';
 
 export class PlayerSpotlightService extends BaseService {
   /**
@@ -11,15 +12,16 @@ export class PlayerSpotlightService extends BaseService {
    * @returns {Promise<HttpResponse<any>>} Successful response
    */
   async getPlayerSpotlight(requestConfig?: RequestConfig): Promise<HttpResponse<any>> {
-    const path = '/v1/player-spotlight';
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/player-spotlight',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    return this.client.call(request);
   }
 }

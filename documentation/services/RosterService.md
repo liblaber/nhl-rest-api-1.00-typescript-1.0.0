@@ -27,12 +27,12 @@ Retrieve the roster for a specific team as of the current moment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.roster.getCurrentTeamRoster('team');
+  const { data } = await nhlClient.roster.getCurrentTeamRoster('team');
 
   console.log(data);
 })();
@@ -59,12 +59,12 @@ Retrieve the roster for a specific team and season.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.roster.getTeamRosterBySeason('team', 5);
+  const { data } = await nhlClient.roster.getTeamRosterBySeason('team', 7);
 
   console.log(data);
 })();

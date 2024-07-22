@@ -28,14 +28,14 @@ Retrieve current skater stats leaders.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.skaterStats.getCurrentSkaterStatsLeaders({
+  const { data } = await nhlClient.skaterStats.getCurrentSkaterStatsLeaders({
     categories: 'categories',
-    limit: 2,
+    limit: 3,
   });
 
   console.log(data);
@@ -65,12 +65,12 @@ Retrieve skater stats leaders for a specific season and game type.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.skaterStats.getSkaterStatsLeaders(6, 2, {
+  const { data } = await nhlClient.skaterStats.getSkaterStatsLeaders(6, 7, {
     categories: 'categories',
     limit: 1,
   });

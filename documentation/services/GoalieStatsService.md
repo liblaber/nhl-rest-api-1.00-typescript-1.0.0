@@ -28,14 +28,14 @@ Retrieve current goalie stats leaders.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.goalieStats.getCurrentGoalieStatsLeaders({
+  const { data } = await nhlClient.goalieStats.getCurrentGoalieStatsLeaders({
     categories: 'categories',
-    limit: 4,
+    limit: 2,
   });
 
   console.log(data);
@@ -65,14 +65,14 @@ Retrieve goalie stats leaders for a specific season and game type.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.goalieStats.getGoalieStatsLeaders(2, 123, {
+  const { data } = await nhlClient.goalieStats.getGoalieStatsLeaders(8, 1, {
     categories: 'categories',
-    limit: 7,
+    limit: 3,
   });
 
   console.log(data);

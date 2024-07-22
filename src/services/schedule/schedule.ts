@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { BaseService } from '../base-service';
 import { ContentType, HttpResponse } from '../../http';
 import { RequestConfig } from '../../http/types';
+import { Request } from '../../http/transport/request';
 
 export class ScheduleService extends BaseService {
   /**
@@ -12,16 +13,18 @@ export class ScheduleService extends BaseService {
    * @returns {Promise<HttpResponse<any>>} Successful response
    */
   async getTeamNextGame(team: string, requestConfig?: RequestConfig): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/schedule/{team}/next', { team: team });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/schedule/{team}/next',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('team', team);
+    return this.client.call(request);
   }
 
   /**
@@ -35,16 +38,19 @@ export class ScheduleService extends BaseService {
     season: number,
     requestConfig?: RequestConfig,
   ): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/schedule/{team}/{season}', { team: team, season: season });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/schedule/{team}/{season}',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('team', team);
+    request.addPathParam('season', season);
+    return this.client.call(request);
   }
 
   /**
@@ -60,19 +66,19 @@ export class ScheduleService extends BaseService {
     game: number,
     requestConfig?: RequestConfig,
   ): Promise<HttpResponse<any>> {
-    const path = this.client.buildPath('/v1/schedule/{season}/team/{team}/game/{game}', {
-      season: season,
-      team: team,
-      game: game,
-    });
-    const options: any = {
+    const request = new Request({
+      method: 'GET',
+      path: '/v1/schedule/{season}/team/{team}/game/{game}',
+      config: this.config,
       responseSchema: z.any(),
       requestSchema: z.any(),
-      headers: {},
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('season', season);
+    request.addPathParam('team', team);
+    request.addPathParam('game', game);
+    return this.client.call(request);
   }
 }

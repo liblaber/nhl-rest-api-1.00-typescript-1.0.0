@@ -28,12 +28,12 @@ Retrieve the next game for a specific team.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.schedule.getTeamNextGame('team');
+  const { data } = await nhlClient.schedule.getTeamNextGame('team');
 
   console.log(data);
 })();
@@ -60,12 +60,12 @@ Retrieve the schedule for a specific team and season.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.schedule.getTeamScheduleBySeason('team', 5);
+  const { data } = await nhlClient.schedule.getTeamScheduleBySeason('team', 8);
 
   console.log(data);
 })();
@@ -93,12 +93,12 @@ Retrieve the statistics for a specific game.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.schedule.getGameStats(5, 'team', 8);
+  const { data } = await nhlClient.schedule.getGameStats(9, 'team', 5);
 
   console.log(data);
 })();

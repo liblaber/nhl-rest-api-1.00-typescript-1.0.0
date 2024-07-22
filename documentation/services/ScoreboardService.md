@@ -26,12 +26,12 @@ Retrieve the scoreboard for a specific team as of the current moment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { Nhl } from 'nhl';
+import { NhlClient } from 'nhl_client';
 
 (async () => {
-  const nhl = new Nhl({});
+  const nhlClient = new NhlClient({});
 
-  const { data } = await nhl.scoreboard.getCurrentTeamScoreboard('team');
+  const { data } = await nhlClient.scoreboard.getCurrentTeamScoreboard('team');
 
   console.log(data);
 })();
